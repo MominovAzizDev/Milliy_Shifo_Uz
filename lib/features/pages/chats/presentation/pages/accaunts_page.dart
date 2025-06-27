@@ -50,7 +50,7 @@ class _AccauntsPageState extends State<AccauntsPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Dr. Helena Fox",
+              "Aziz",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
