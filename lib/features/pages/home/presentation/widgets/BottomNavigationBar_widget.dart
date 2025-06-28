@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:milliy_shifo/features/pages/MSheducation/presentation/pages/splash_screen.dart';
 import 'package:milliy_shifo/features/pages/chats/presentation/pages/chat_pages.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/pages/homepage.dart';
 import 'package:milliy_shifo/features/pages/profile/presentation/pages/profiles.dart';
@@ -17,7 +18,7 @@ class _BottomnavigationbarWidgetState extends State<BottomnavigationbarWidget> {
     Homepage(),
     Center(child: Text('💬 Records Page')),
     ChatPages(),
-     Center(child: Text('💬 Education')),
+     SplashScreen(),
     Profiles(),
   ];
 
