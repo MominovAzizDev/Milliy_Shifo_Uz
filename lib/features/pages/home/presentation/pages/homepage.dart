@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/app_colors.dart';
+import 'package:milliy_shifo/features/pages/doctors/presentation/pages/doctorspage.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/widgets/functionShowDialog.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/widgets/popularspecialisations.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/widgets/services_widgets.dart';
 
 import '../../../../../../core/utils/mediaquery_meneger.dart';
 import '../widgets/doctorcard.dart';
 import '../widgets/neardoctors.dart';
 import '../widgets/namesofheads.dart';
-import '../widgets/popularspecialisations.dart';
 import '../../../notifications/presentation/pages/notifications.dart';
 
 class Homepage extends StatefulWidget {
@@ -82,26 +85,32 @@ class _HomepageState extends State<Homepage> {
                   names: "Popular specialisations",
                   alldatabutton: "See all",
                 ),
-                Popularspecialisations(
-                  icones: Icons.ac_unit_sharp,
-                  jobs: "Dentist",
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                Popularspecialisations( icones: Icons.ac_unit_sharp,
+                  jobs: "Neurosurgeon",
                   numdoctors: "21 doctors",
-                ),
-                Popularspecialisations(
-                  icones: Icons.access_time_rounded,
+                  linkpages: Doctorspage(),),
+               Popularspecialisations( icones: Icons.access_time_rounded,
                   jobs: "Pulmonologist",
                   numdoctors: "19 doctors ",
-                ),
+                  linkpages: Doctorspage(),),
                 Popularspecialisations(
                   icones: Icons.add_card,
                   jobs: "Gastroenterologist",
                   numdoctors: "8 doctors ",
+                  linkpages: Doctorspage(),
                 ),
                 Popularspecialisations(
                   icones: Icons.adb_sharp,
                   jobs: "Cardiologist",
                   numdoctors: "15 doctors ",
+                  linkpages: Doctorspage(),
                 ),
+                ],
+              ),
                 SizedBox(height: 15,),
                 Namesofheads(
                   names: "Doctors near you",
@@ -138,33 +147,62 @@ class _HomepageState extends State<Homepage> {
                   ],
                 ),
                 SizedBox(height: 20,),
-                Text(
+                 Text(
                   "Services",
                   style: TextStyle(
                     fontSize: MediaqueryMeneger.fontSize(20),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10,),
-                Popularspecialisations(
-                  icones: Icons.schedule,
-                  jobs: "Appointments",
-                  numdoctors: "↗️",
+                SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () => showMyDialog(
+                    context,
+                    "Appointments",
+                    "Book and manage your medical appointments easily. Choose a time slot, select a doctor, and confirm your visit — all in one place.",
+                  ),
+                  child: ServicesWidgets(
+                    icones: Icons.schedule,
+                    jobs: "Appointments",
+                    numdoctors: "↗️",
+                  ),
                 ),
-                Popularspecialisations(
-                  icones: Icons.calendar_month_sharp,
-                  jobs: "Vaccination calendar",
-                  numdoctors: "↗️",
+                GestureDetector(
+                  onTap: () => showMyDialog(
+                    context,
+                    "Vaccination Calendar",
+                    "Stay on track with your immunization schedule. View upcoming vaccine dates and get reminders for your next dose.",
+                  ),
+                  child: ServicesWidgets(
+                    icones: Icons.calendar_month_sharp,
+                    jobs: "Vaccination calendar",
+                    numdoctors: "↗️",
+                  ),
                 ),
-                Popularspecialisations(
-                  icones: Icons.help_outline,
-                  jobs: "FAQ",
-                  numdoctors: "↗️",
+                GestureDetector(
+                  onTap: () => showMyDialog(
+                    context,
+                    "FAQ",
+                    "Find quick answers to the most common questions about appointments, vaccinations, and using the app effectively.",
+                  ),
+                  child: ServicesWidgets(
+                    icones: Icons.help_outline,
+                    jobs: "FAQ",
+                    numdoctors: "↗️",
+                  ),
                 ),
-                Popularspecialisations(
-                  icones: Icons.chat,
-                  jobs: "Support chat",
-                  numdoctors: "↗️",
+                GestureDetector(
+                  onTap: () => showMyDialog(
+                    context,
+                    "Support Chat",
+
+                    "Need help? Our support team is ready to assist you with any issues or questions you may have. Start a chat now!",
+                  ),
+                  child: ServicesWidgets(
+                    icones: Icons.chat,
+                    jobs: "Support chat",
+                    numdoctors: "↗️",
+                  ),
                 ),
                 SizedBox(height: 20,),
               ],

@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
-import 'package:milliy_shifo/features/pages/notifications/presentation/pages/notifications.dart';
-import 'package:milliy_shifo/features/pages/profile/presentation/widgets/listTitles_widget.dart';
-import 'package:milliy_shifo/features/pages/profile/presentation/widgets/personal_information_widget.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/widgets/functionShowDialog.dart';
+import 'package:milliy_shifo/features/pages/profile%20copy/presentation/widgets/listTitles_widget.dart';
+import 'package:milliy_shifo/features/pages/profile%20copy/presentation/widgets/personal_information_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Profiles extends StatefulWidget {
@@ -94,42 +94,90 @@ class _ProfilesState extends State<Profiles> {
             ListtitlesWidget(
               icons: Icons.favorite,
               names: "Favorite doctors",
-              nextPage: Notifications(),
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "Sevimli shifokorlar",
+                  "Sizda hozircha hech qanday sevimli shifokor mavjud emas. Ro‘yxatga qo‘shish uchun shifokorni tanlang.",
+                );
+              },
             ),
             ListtitlesWidget(
               icons: Icons.perm_contact_calendar,
               names: "Emergency contact",
-              nextPage: Notifications(),
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "Favqulodda kontakt",
+                  "Favqulodda bog‘lanish uchun 103 raqamamiga bog'laning!",
+                );
+              },
             ),
             ListtitlesWidget(
               icons: Icons.medical_information_sharp,
               names: "Insurance information",
-              nextPage: Notifications(),
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "Sug'urta ma'lumotlari",
+                  "Hozircha hech qanday sug'urta ma'lumotlari topilmadi. Qo‘shish uchun sug'urta raqamingizni kiriting.",
+                );
+              },
             ),
             ListtitlesWidget(
               icons: Icons.notifications,
-              names: "Notification settings ",
-              nextPage: Notifications(),
+              names: "Notification settings",
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "Bildirishnoma sozlamalari",
+                  "Bildirishnomalarni yoqish yoki o‘chirish uchun mos sozlamalarni tanlang.",
+                );
+              },
             ),
             ListtitlesWidget(
               icons: Icons.payment_sharp,
               names: "Payment settings",
-              nextPage: Notifications(),
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "To‘lov sozlamalari",
+                  "Hozircha hech qanday to‘lov usuli kiritilmagan. To‘lov kartangizni qo‘shish uchun sozlamalarga o‘ting.",
+                );
+              },
             ),
             ListtitlesWidget(
               icons: Icons.email,
               names: "Change email",
-              nextPage: Notifications(),
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "Emailni o‘zgartirish",
+                  "Amaldagi email manzilingizni yangilash uchun yangi email kiriting.",
+                );
+              },
             ),
             ListtitlesWidget(
               icons: Icons.password,
               names: "Security settings",
-              nextPage: Notifications(),
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "Xavfsizlik sozlamalari",
+                  "Parolingizni yangilash yoki ikki bosqichli tasdiqlashni sozlash uchun bu bo‘limga kiring.",
+                );
+              },
             ),
             ListtitlesWidget(
               icons: Icons.logout_sharp,
-              names: "out",
-              nextPage: Notifications(),
+              names: "Log out",
+              onTap: () {
+                showMyDialog(
+                  context,
+                  "Ilovadan chiqish",
+                  "Rostdan ham ilovadan chiqmoqchimisiz? Barcha seans ma’lumotlari bekor qilinadi.",
+                );
+              },
             ),
           ],
         ),

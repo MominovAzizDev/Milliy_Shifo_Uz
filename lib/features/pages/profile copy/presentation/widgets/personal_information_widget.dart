@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:milliy_shifo/features/pages/profile/presentation/pages/profiles.dart';
+import 'package:milliy_shifo/features/pages/profile%20copy/presentation/pages/profiles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PersonalInformationWidget extends StatefulWidget {
@@ -16,7 +16,6 @@ class PersonalInformationWidget extends StatefulWidget {
 
 class _PersonalInformationWidgetState extends State<PersonalInformationWidget> {
   File? _image;
-  String? _imageURL;
   final picker = ImagePicker();
 
   Future<void> imagepicker() async {
@@ -35,7 +34,6 @@ class _PersonalInformationWidgetState extends State<PersonalInformationWidget> {
       final ref = FirebaseStorage.instance.ref().child(
         'profile_images/$uid.jpg',
       );
-      final uploadTask = await ref.putFile(image);
       final downloadUrl = await ref.getDownloadURL();
       return downloadUrl;
     } catch (e) {

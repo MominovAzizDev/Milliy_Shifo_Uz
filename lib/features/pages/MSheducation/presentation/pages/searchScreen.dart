@@ -4,15 +4,15 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F8FF),
+      backgroundColor: Color(0xFFF5F8FF),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F8FF),
+        backgroundColor: Color(0xFFF5F8FF),
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.blue),
+          icon: Icon(Icons.arrow_back, color: Colors.blue),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text(
+        title: Text(
           'All Category',
           style: TextStyle(color: Colors.black87, fontSize: 18),
         ),
@@ -22,7 +22,7 @@ class SearchScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: EdgeInsets.symmetric(horizontal: 12),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -34,25 +34,8 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Row(
-                children: const [
-                  Icon(Icons.search, color: Colors.grey),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Search for..',
-                        ),
-                      ),
-                    ),
-                  ),
-                  Icon(Icons.close, color: Colors.blue),
-                ],
-              ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -98,11 +81,11 @@ class CategoryCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, size: 50, color: Colors.blue),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14, color: Colors.black87),
+            style: TextStyle(fontSize: 14, color: Colors.black87),
           ),
         ],
       ),
