@@ -40,15 +40,15 @@ class _BottomnavigationbarWidgetState extends State<BottomnavigationbarWidget> {
         selectedItemColor: Colors.teal,
         unselectedItemColor: Colors.grey,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label:"Bosh bo'lim"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.file_copy_rounded),
-            label: 'Records',
+            icon: Icon(Icons.calendar_today_outlined),
+            label: 'Kalendar',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_search_sharp), label: 'Shifokorlar'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.cast_for_education),
-            label: 'Education',
+            icon: Icon(Icons.pie_chart_outline_sharp),
+            label: 'Dorixona',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],

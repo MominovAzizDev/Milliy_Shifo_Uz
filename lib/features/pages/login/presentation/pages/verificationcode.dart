@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
-
-import '../../../register/presentation/widgets/enter_main_button.dart';
-import '../../../register/presentation/widgets/outline_button_page.dart';
+import '../../../buttons/widgets/enter_main_button.dart';
+import '../../../buttons/widgets/outline_button_page.dart';
 import 'new_password.dart';
 
 class Verificationcode extends StatelessWidget {
@@ -12,7 +10,6 @@ class Verificationcode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MediaqueryMeneger.init(context);
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent),
       body: SingleChildScrollView(
@@ -22,24 +19,24 @@ class Verificationcode extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: MediaqueryMeneger.height(4),
+                height: 4,
                 child: Text(
                   "Enter the 4-digit code",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: MediaqueryMeneger.fontSize(25),
+                    fontSize: 25,
                   ),
                 ),
               ),
-              SizedBox(height: MediaqueryMeneger.height(2)),
+              SizedBox(height: 2),
               SizedBox(
-                height: MediaqueryMeneger.height(6),
+                height: 6,
                 child: Text(
                   "We've sent the code to your email, check your inbox.",
-                  style: TextStyle(fontSize: MediaqueryMeneger.fontSize(13)),
+                  style: TextStyle(fontSize: 13),
                 ),
               ),
-              SizedBox(height: MediaqueryMeneger.height(1)),
+              SizedBox(height: 1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: List.generate(smslength, (index) {
@@ -61,17 +58,17 @@ class Verificationcode extends StatelessWidget {
                   );
                 }),
               ),
-              SizedBox(height: MediaqueryMeneger.height(2)),
+              SizedBox(height: 2),
               SizedBox(
-                height: MediaqueryMeneger.height(6),
+                height: 6,
                 child: Text(
                   "This OTP will be available during 00:59sec",
-                  style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
               SizedBox(
-                width: MediaqueryMeneger.width(80),
-                height: MediaqueryMeneger.height(5),
+                width: 80,
+                height: 5,
                 child: EnterMainButtonPage(
                   labels: "Reset password",
                   onPressed: () {
@@ -82,10 +79,10 @@ class Verificationcode extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: MediaqueryMeneger.height(2)),
+              SizedBox(height: 2),
               SizedBox(
-                width: MediaqueryMeneger.width(80),
-                height: MediaqueryMeneger.height(5),
+                width: 80,
+                height: 5,
                 child: OutlineButtonPage(
                   label: "Resend code",
                   onpressed: () {},

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
+import 'package:milliy_shifo/core/utils/images.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/pages/homepage.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/widgets/BottomNavigationBar_widget.dart';
 import 'package:milliy_shifo/services/auth_service.dart';
 
-import '../../../register/presentation/widgets/enter_main_button.dart';
-import '../../../register/presentation/pages/create_accaunt.dart';
+import '../../../buttons/widgets/enter_main_button.dart';
 import 'forgot_password.dart';
 
 class Login extends StatefulWidget {
@@ -15,11 +15,20 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final TextEditingController emailController= TextEditingController();
-  final TextEditingController passwordController=TextEditingController();
-  final AuthService _auth=AuthService();
+  final TextEditingController loginEmailController = TextEditingController();
+  final TextEditingController loginPasswordController = TextEditingController();
+  final TextEditingController registerEmailController = TextEditingController();
+  final TextEditingController registerPasswordController =
+      TextEditingController();
+  final TextEditingController registerNameController = TextEditingController();
+  final TextEditingController registerPhoneController = TextEditingController();
+
+  final AuthService _auth = AuthService();
+
   bool _obsecure = true;
   bool _checkbutton = false;
+
+  bool isLogin = true;
 
   void buttonCheck() {
     setState(() {
@@ -33,142 +42,241 @@ class _LoginState extends State<Login> {
     });
   }
 
+  Widget _buildLoginForm() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Email",
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        TextField(
+          controller: loginEmailController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: "Emainni kiriting",
+          ),
+        ),
+        SizedBox(height: 10),
+        Text(
+          "Password",
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        TextField(
+          controller: loginPasswordController,
+          obscureText: _obsecure,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: "Passwordni kiriting",
+            suffixIcon: IconButton(
+              onPressed: checkEye,
+              icon: Icon(_obsecure ? Icons.visibility_off : Icons.visibility),
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            Checkbox(value: _checkbutton, onChanged: (value) => buttonCheck()),
+            Text("Meni eslab qol", style: TextStyle(fontSize: 13)),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ForgotPassword()),
+                );
+              },
+              child: Text(
+                "Parolni unutdingizmi?",
+                style: TextStyle(fontSize: 13),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 10),
+        SizedBox(
+          width: double.infinity,
+          height: 50,
+          child: EnterMainButtonPage(
+            labels: "Kirish",
+            onPressed: () async {
+              final user = await _auth.signIn(
+                loginEmailController.text.trim(),
+                loginPasswordController.text.trim(),
+              );
+              if (user != null) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BottomnavigationbarWidget(),
+                  ),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Email yoki Parol xato")),
+                );
+              }
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRegisterForm() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "To'liq ism",
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        TextField(
+          controller: registerNameController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: "Ismingizni kiriting",
+          ),
+        ),
+        SizedBox(height: 10),
+        Text(
+          "Telefon raqami",
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        TextField(
+          controller: registerPhoneController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: "Raqamni kiriting",
+          ),
+        ),
+        SizedBox(height: 10),
+        Text(
+          "Email",
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        TextField(
+          controller: registerEmailController,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: "Emailni kiriting",
+          ),
+        ),
+        SizedBox(height: 10),
+        Text(
+          "Password",
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        TextField(
+          controller: registerPasswordController,
+          obscureText: _obsecure,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: "Passwordni kiriting",
+            suffixIcon: IconButton(
+              onPressed: checkEye,
+              icon: Icon(_obsecure ? Icons.visibility_off : Icons.visibility),
+            ),
+          ),
+        ),
+        SizedBox(height: 10),
+        SizedBox(
+          width: double.infinity,
+          height: 50,
+          child: EnterMainButtonPage(
+            labels: "Hisob yaratish",
+            onPressed: () async {
+              final user = await _auth.signUp(
+                registerEmailController.text.trim(),
+                registerPasswordController.text.trim(),
+              );
+              if (user != null) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Homepage()),
+                );
+              }
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.transparent),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(left: 20, right: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: MediaqueryMeneger.height(5),
-                child: Text(
-                  "Log in",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: MediaqueryMeneger.fontSize(25),
-                  ),
-                ),
-              ),
-              SizedBox(height: MediaqueryMeneger.height(2)),
-              SizedBox(
-                height: MediaqueryMeneger.height(4),
-                child: Text(
-                  "Nice to have you back!",
-                  style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
-                ),
-              ),
-              Text(
-                "Email",
-                style: TextStyle(
-                  fontSize: MediaqueryMeneger.fontSize(17),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter your email",
-                ),
-              ),
-              SizedBox(height: MediaqueryMeneger.height(2)),
-              Text(
-                "Password",
-                style: TextStyle(
-                  fontSize: MediaqueryMeneger.fontSize(17),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextField(
-                controller: passwordController,
-                obscureText: _obsecure,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter your password",
-                  suffixIcon: IconButton(
-                    onPressed: checkEye,
-                    icon: Icon(
-                      _obsecure ? Icons.visibility_off : Icons.visibility,
+              Image.asset(Images.logo, height: 150),
+              Text("Hisobingizga kiring", style: TextStyle(fontSize: 18)),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isLogin = true;
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        decoration: BoxDecoration(
+                          color: isLogin ? Colors.white : Colors.grey[300],
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            bottomLeft: Radius.circular(12),
+                          ),
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Kirish",
+                          style: TextStyle(
+                            color: isLogin ? Colors.blue : Colors.black54,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ForgotPassword(),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isLogin = false;
+                        });
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        decoration: BoxDecoration(
+                          color: !isLogin ? Colors.white : Colors.grey[300],
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(12),
+                            bottomRight: Radius.circular(12),
+                          ),
                         ),
-                      );
-                    },
-                    child: Text("Forgot password?"),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Checkbox(
-                    value: _checkbutton,
-                    onChanged: (value) => buttonCheck(),
-                  ),
-                  Text(
-                    "Keep me signed in",
-                    style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
-                  ),
-                ],
-              ),
-              SizedBox(height: MediaqueryMeneger.height(3)),
-              SizedBox(
-                width: MediaqueryMeneger.width(80),
-                height: MediaqueryMeneger.height(5),
-                child: EnterMainButtonPage(
-                  labels: "Log in",
-                  onPressed: () async{
-                    final user=await _auth.signIn(emailController.text, passwordController.text);
-                    if(user!=null){
-                      Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => BottomnavigationbarWidget(),
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Ro'yxatdan o'tish",
+                          style: TextStyle(
+                            color: !isLogin ? Colors.blue : Colors.black54,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
-                    );
-                    }else{
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Email yoki Parol xato")));
-                    }
-                  },
-                ),
-              ),
-              SizedBox(height: MediaqueryMeneger.height(5)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: MediaqueryMeneger.width(20),
-                    child: Image.asset("assets/succesfully/faceID.png"),
+                    ),
                   ),
                 ],
               ),
-              SizedBox(height: MediaqueryMeneger.height(10)),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => CreateAccaunt()),
-                  );
-                },
-                child: Text(
-                  "Are you new here? Create account",
-                  style: TextStyle(fontSize: MediaqueryMeneger.fontSize(17)),
-                ),
-              ),
+              SizedBox(height: 20),
+              isLogin ? _buildLoginForm() : _buildRegisterForm(),
             ],
           ),
         ),

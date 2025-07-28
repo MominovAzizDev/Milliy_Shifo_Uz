@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/app_colors.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
 
 class EnterMainButtonPage extends StatelessWidget {
   final String labels;
@@ -14,7 +13,6 @@ class EnterMainButtonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MediaqueryMeneger.init(context);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.enterButtonBack,
@@ -24,7 +22,7 @@ class EnterMainButtonPage extends StatelessWidget {
       child: Text(
         labels,
         style: TextStyle(
-          fontSize: MediaqueryMeneger.fontSize(15),
+          fontSize: 15,
           color: AppColors.enterButtonText,
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
 import 'package:milliy_shifo/features/pages/splash/presentation/pages/welcome_page.dart';
 
 class Splash extends StatefulWidget {
@@ -24,7 +23,6 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    MediaqueryMeneger.init(context);
     return Scaffold(body: Center(child: Image.asset("assets/Splash/logo.png")));
   }
 }

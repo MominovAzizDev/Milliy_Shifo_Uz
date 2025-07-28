@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
-
-import '../../../register/presentation/widgets/enter_main_button.dart';
-import '../../../register/presentation/widgets/outline_button_page.dart';
-import '../../../login/presentation/pages/login.dart';
-import '../../../register/presentation/pages/create_accaunt.dart';
+import 'package:milliy_shifo/core/utils/images.dart';
+import 'package:milliy_shifo/features/pages/login/presentation/pages/login.dart';
+import '../../../buttons/widgets/enter_main_button.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -24,42 +21,74 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
-    MediaqueryMeneger.init(context);
     return Scaffold(
       body: PageView(
         controller: pageController,
-        physics: NeverScrollableScrollPhysics(),
         children: [
           SizedBox(
-            width: MediaqueryMeneger.width(60),
-            height: MediaqueryMeneger.height(30),
+            width: double.infinity,
+            height: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset("assets/Splash/Splash1.png"),
-                SizedBox(height: MediaqueryMeneger.height(7)),
+                Image.asset(Images.doctors),
+                SizedBox(height: 7),
                 Text(
-                  "Healthcare Made Easy",
-                  style: TextStyle(
-                    fontSize: MediaqueryMeneger.fontSize(25),
-                    fontWeight: FontWeight.bold,
-                  ),
+                  "Shifokorlar bilan bog'laning",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: MediaqueryMeneger.height(2)),
+                SizedBox(height: 2),
                 Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30),
-                  child: Text(
-                    "Choose from a wide range of specialists and book appointments with ease. Personalized care is just a click away.",
-                    style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Eng yaxshi shifokorlar bilan video, audio va chat orqali maslahat oling",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "24/7 shifokorlar mavjud",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Barcha mutaxassisliklar",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Xavfsiz va mahfiy",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: MediaqueryMeneger.height(4)),
+                SizedBox(height: 50),
                 SizedBox(
-                  width: MediaqueryMeneger.width(80),
-                  height: MediaqueryMeneger.height(5),
+                  width: 300,
+                  height: 35,
                   child: EnterMainButtonPage(
-                    labels: "Next",
+                    labels: "Davom etish",
                     onPressed: () {
                       pageController.nextPage(
                         duration: Duration(milliseconds: 300),
@@ -72,38 +101,81 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ),
           SizedBox(
-            width: MediaqueryMeneger.width(60),
-            height: MediaqueryMeneger.height(90),
+            width: 60,
+            height: 90,
             child: Column(
               children: [
-                SizedBox(height: 130,),
-                Image.asset("assets/Splash/Splash2.png"),
-                SizedBox(
-                  height: MediaqueryMeneger.height(7),
-                  child: Text(
-                    "Here for You, Always",
-                    style: TextStyle(
-                      fontSize: MediaqueryMeneger.fontSize(25),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                SizedBox(height: 120),
+                Image.asset(Images.phonecalendar),
+                SizedBox(height: 7),
+                Text(
+                  "Qabulga oson yoziling",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-
+                SizedBox(height: 2),
                 Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30),
-                  child: Text(
-                    "Save your test results, access prescriptions,get medication delivered, manage appointments —all in one place.",
-                    style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Bir necha bosish bilan shifokor qabuliga yoziling va vaqtingizni rejalashtiring",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Tez va oson yozilish",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Eslatmalar va bildirishnomalar",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text("Qabul tarixi", style: TextStyle(fontSize: 15)),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: MediaqueryMeneger.height(4)),
+                SizedBox(height: 90),
                 SizedBox(
-                  width: MediaqueryMeneger.width(80),
-                  height: MediaqueryMeneger.height(5),
+                  width: 300,
+                  height: 35,
                   child: EnterMainButtonPage(
-                    labels: "Get started",
+                    labels: "Davom etish",
                     onPressed: () {
                       pageController.nextPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                SizedBox(
+                  width: 300,
+                  height: 35,
+                  child: EnterMainButtonPage(
+                    labels: "Orqaga",
+                    onPressed: () {
+                      pageController.previousPage(
                         duration: Duration(milliseconds: 300),
                         curve: Curves.easeIn,
                       );
@@ -114,55 +186,171 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ),
           SizedBox(
-            width: MediaqueryMeneger.width(60),
-            height: MediaqueryMeneger.height(50),
+            width: 60,
+            height: 50,
             child: Column(
               children: [
-                SizedBox(height: 120,),
-                Image.asset("assets/Splash/Splash3.png"),
-                SizedBox(
-                  height: MediaqueryMeneger.height(7),
-                  child: Text(
-                    "Wellcome to Milliy Shifo!",
-                    style: TextStyle(
-                      fontSize: MediaqueryMeneger.fontSize(25),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                SizedBox(height: 120),
+                Image.asset(Images.drugs),
+                SizedBox(height: 7),
+                Text(
+                  "Dorilarni online xarid qiling",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
+                SizedBox(height: 2),
                 Padding(
-                  padding: EdgeInsets.only(left: 30, right: 30),
-                  child: Text(
-                    "Connect with doctors, manage appointments,  access care whenever you need it.",
-                    style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Kerakli dorilarni uydan chiqmasdan buyurtma qiling va tezda olib keling",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Tez yetkazib berish",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Sifatli dorilar",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text("Qulay narxlar", style: TextStyle(fontSize: 15)),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: MediaqueryMeneger.height(4)),
+                SizedBox(height: 80),
                 SizedBox(
-                  width: MediaqueryMeneger.width(80),
-                  height: MediaqueryMeneger.height(5),
+                  width: 300,
+                  height: 35,
                   child: EnterMainButtonPage(
-                    labels: "Create an account",
+                    labels: "Davom etish",
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CreateAccaunt(),
-                        ),
+                      pageController.nextPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
                       );
                     },
                   ),
                 ),
-                SizedBox(height: MediaqueryMeneger.height(2)),
+                SizedBox(height: 10),
                 SizedBox(
-                  width: MediaqueryMeneger.width(80),
-                  height: MediaqueryMeneger.height(5),
-                  child: OutlineButtonPage(
-                    label: "Log in",
-                    onpressed: () {
-                      Navigator.push(
+                  width: 300,
+                  height: 35,
+                  child: EnterMainButtonPage(
+                    labels: "Orqaga",
+                    onPressed: () {
+                      pageController.previousPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: 60,
+            height: 50,
+            child: Column(
+              children: [
+                SizedBox(height: 120),
+                Image.asset(Images.learnmed),
+                SizedBox(height: 7),
+                Text(
+                  "Tibbiy bilimlarni o'rganing",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 2),
+                Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Sog'liq haqida foydali ma'lumotlar, kurslar va shifokorlar maslahatlarini oling",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Professional kurslar",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Kundalik maslahatlar",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Image.asset(Images.corrects, height: 25),
+                          SizedBox(width: 5),
+                          Text(
+                            "Sog'liq nazorati",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40),
+                SizedBox(
+                  width: 300,
+                  height: 35,
+                  child: EnterMainButtonPage(
+                    labels: "Davom etish",
+                    onPressed: () {
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => Login()),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 10),
+                SizedBox(
+                  width: 300,
+                  height: 35,
+                  child: EnterMainButtonPage(
+                    labels: "Orqaga",
+                    onPressed: () {
+                      pageController.previousPage(
+                        duration: Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
                       );
                     },
                   ),

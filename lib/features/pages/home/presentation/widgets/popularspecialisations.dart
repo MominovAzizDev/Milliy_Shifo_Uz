@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/app_colors.dart';
 
-import '../../../../../../../core/utils/mediaquery_meneger.dart';
 
 class Popularspecialisations extends StatefulWidget {
   final IconData icones;
@@ -39,11 +38,11 @@ class _PopularspecialisationsState extends State<Popularspecialisations> {
               Icon(widget.icones, color: AppColors.enterButtonBack, size: 30),
               Text(
                 widget.jobs,
-                style: TextStyle(fontSize: MediaqueryMeneger.fontSize(18)),
+                style: TextStyle(fontSize: 18),
               ),
               Text(
                 widget.numdoctors,
-                style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
+                style: TextStyle(fontSize: 15),
               ),
             ],
           ),

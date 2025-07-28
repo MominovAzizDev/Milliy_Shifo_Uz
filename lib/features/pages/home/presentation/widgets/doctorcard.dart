@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:milliy_shifo/core/utils/app_colors.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
-import 'package:milliy_shifo/features/pages/register/presentation/widgets/enter_main_button.dart';
-import '../../../chats/presentation/pages/accaunts_page.dart';
-
 
 class Doctorcard extends StatelessWidget {
   final String images;
@@ -11,6 +6,8 @@ class Doctorcard extends StatelessWidget {
   final String jobs;
   final String day;
   final String typeofmeeting;
+  final String typeplace;
+  final String time;
 
   const Doctorcard({
     super.key,
@@ -19,64 +16,55 @@ class Doctorcard extends StatelessWidget {
     required this.jobs,
     required this.day,
     required this.typeofmeeting,
+    required this.typeplace,
+    required this.time,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaqueryMeneger.height(22),
+      height: 220,
       child: Card(
+        color: Colors.white,
         child: Column(
           children: [
             ListTile(
               leading: CircleAvatar(
-                maxRadius: 30,
+                maxRadius: 40,
                 backgroundImage: AssetImage(images),
               ),
-              title: Text(
-                name,
-                style: TextStyle(fontSize: MediaqueryMeneger.fontSize(20)),
-              ),
-              subtitle: Text(
-                jobs,
-                style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
-              ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.more_vert),
-              ),
+              title: Text(name, style: TextStyle(fontSize: 20)),
+              subtitle: Text(jobs, style: TextStyle(fontSize: 15)),
+              trailing: Text(typeplace, style: TextStyle(color: Colors.blue)),
             ),
-            ListTile(
-              title: Row(
+            Padding(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Row(
                 children: [
-                  Icon(Icons.calendar_month, color: AppColors.enterButtonBack),
-                  SizedBox(width: 10),
-                  Text(
-                    day,
-                    style: TextStyle(fontSize: MediaqueryMeneger.fontSize(13)),
+                  Row(
+                    children: [
+                      Icon(Icons.star, color: Colors.amber),
+                      SizedBox(width: 5),
+                      Text(typeofmeeting, style: TextStyle(fontSize: 15)),
+                    ],
+                  ),
+                  SizedBox(width: 15),
+                  Row(
+                    children: [
+                      Icon(Icons.person, color: Colors.black),
+                      SizedBox(width: 5),
+                      Text(day, style: TextStyle(fontSize: 13)),
+                    ],
+                  ),
+                  SizedBox(width: 15),
+                  Row(
+                    children: [
+                      Icon(Icons.watch_later_outlined, color: Colors.blueGrey),
+                      SizedBox(width: 5),
+                      Text(time, style: TextStyle(fontSize: 15)),
+                    ],
                   ),
                 ],
-              ),
-              subtitle: Row(
-                children: [
-                  Icon(Icons.laptop, color: AppColors.enterButtonBack),
-                  SizedBox(width: 10),
-                  Text(
-                    typeofmeeting,
-                    style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
-                  ),
-                ],
-              ),
-              trailing: EnterMainButtonPage(
-                labels: "Chat",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AccauntsPage(chatId: "me_$name"),
-                    ),
-                  );
-                },
               ),
             ),
           ],

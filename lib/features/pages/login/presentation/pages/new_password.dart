@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
 
-import '../../../register/presentation/widgets/enter_main_button.dart';
+import '../../../buttons/widgets/enter_main_button.dart';
 import 'login.dart';
 
 class NewPassword extends StatefulWidget {
@@ -48,20 +47,20 @@ class _NewPasswordState extends State<NewPassword> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaqueryMeneger.height(4),
+              height: 4,
               child: Text(
                 "Enter new password",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: MediaqueryMeneger.fontSize(25),
+                  fontSize: 25,
                 ),
               ),
             ),
-            SizedBox(height: MediaqueryMeneger.height(2)),
+            SizedBox(height: 2),
             Text(
               "Password",
               style: TextStyle(
-                fontSize: MediaqueryMeneger.fontSize(17),
+                fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -79,11 +78,11 @@ class _NewPasswordState extends State<NewPassword> {
                 ),
               ),
             ),
-            SizedBox(height: MediaqueryMeneger.height(2)),
+            SizedBox(height: 2),
             Text(
               "Repeat password",
               style: TextStyle(
-                fontSize: MediaqueryMeneger.fontSize(17),
+                fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -101,10 +100,10 @@ class _NewPasswordState extends State<NewPassword> {
                 ),
               ),
             ),
-            SizedBox(height: MediaqueryMeneger.height(5)),
+            SizedBox(height:5),
             SizedBox(
-              width: MediaqueryMeneger.width(80),
-              height: MediaqueryMeneger.height(5),
+              width: 80,
+              height: 5,
               child: EnterMainButtonPage(
                 labels: "Save password",
                 onPressed: CheckPasswords,

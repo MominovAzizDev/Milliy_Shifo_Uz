@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/utils/app_colors.dart';
-import '../../../../../../../core/utils/mediaquery_meneger.dart';
+
 
 class Namesofheads extends StatelessWidget {
   final String names;
@@ -21,7 +21,7 @@ class Namesofheads extends StatelessWidget {
         Text(
           names,
           style: TextStyle(
-            fontSize: MediaqueryMeneger.fontSize(20),
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -31,7 +31,7 @@ class Namesofheads extends StatelessWidget {
             alldatabutton,
             style: TextStyle(
               color: AppColors.enterButtonBack,
-              fontSize: MediaqueryMeneger.fontSize(15),
+              fontSize: 15,
             ),
           ),
         ),

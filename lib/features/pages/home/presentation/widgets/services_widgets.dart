@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/app_colors.dart';
-
-import '../../../../../../../core/utils/mediaquery_meneger.dart';
-
 class ServicesWidgets extends StatelessWidget {
   final IconData icones;
   final String jobs;
@@ -22,11 +19,11 @@ class ServicesWidgets extends StatelessWidget {
         leading: Icon(icones, color: AppColors.enterButtonBack),
         title: Text(
           jobs,
-          style: TextStyle(fontSize: MediaqueryMeneger.fontSize(18)),
+          style: TextStyle(fontSize: 18),
         ),
         trailing: Text(
           numdoctors,
-          style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
+          style: TextStyle(fontSize: 15),
         ),
       ),
     );

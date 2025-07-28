@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/app_colors.dart';
 import 'package:milliy_shifo/features/pages/notifications/presentation/widgets/notification_widget.dart';
 
-import '../../../../../../../core/utils/mediaquery_meneger.dart';
-
 class Notifications extends StatefulWidget {
   const Notifications({super.key});
 
@@ -24,7 +22,7 @@ class _NotificationsState extends State<Notifications> {
               "Read all",
               style: TextStyle(
                 color: AppColors.enterButtonBack,
-                fontSize: MediaqueryMeneger.fontSize(15),
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -42,7 +40,7 @@ class _NotificationsState extends State<Notifications> {
                 child: Text(
                   "Notifications",
                   style: TextStyle(
-                    fontSize: MediaqueryMeneger.fontSize(25),
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

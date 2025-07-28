@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/utils/app_colors.dart';
-import '../../../../../../../core/utils/mediaquery_meneger.dart';
 
 class Neardoctors extends StatelessWidget {
   final String images;
@@ -31,13 +30,13 @@ class Neardoctors extends StatelessWidget {
                 Text(
                   name,
                   style: TextStyle(
-                    fontSize: MediaqueryMeneger.fontSize(16),
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   jobs,
-                  style: TextStyle(fontSize: MediaqueryMeneger.fontSize(15)),
+                  style: TextStyle(fontSize: 15),
                 ),
               ],
             ),
@@ -56,7 +55,7 @@ class Neardoctors extends StatelessWidget {
                     Text(
                       stars,
                       style: TextStyle(
-                        fontSize: MediaqueryMeneger.fontSize(15),
+                        fontSize: 15,
                       ),
                     ),
                   ],

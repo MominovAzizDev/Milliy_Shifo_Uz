@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../widgets/listofchats.dart';
 
-import '../../../../../../core/utils/mediaquery_meneger.dart';
 import 'accaunts_page.dart';
 
 class ChatPages extends StatefulWidget {
@@ -89,7 +88,7 @@ class _ChatPagesState extends State<ChatPages> {
         title: Text(
           "Messages",
           style: TextStyle(
-            fontSize: MediaqueryMeneger.fontSize(25),
+            fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),

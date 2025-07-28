@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:milliy_shifo/core/utils/mediaquery_meneger.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/widgets/functionShowDialog.dart';
 import 'package:milliy_shifo/features/pages/profile%20copy/presentation/widgets/listTitles_widget.dart';
 import 'package:milliy_shifo/features/pages/profile%20copy/presentation/widgets/personal_information_widget.dart';
@@ -57,7 +56,7 @@ class _ProfilesState extends State<Profiles> {
               child: Text(
                 "Profile",
                 style: TextStyle(
-                  fontSize: MediaqueryMeneger.fontSize(25),
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
