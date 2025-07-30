@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/app_colors.dart';
 import 'package:milliy_shifo/core/utils/images.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/pages/myhealthcard.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/widgets/doctorProfileCard.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/widgets/doctorcard.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/widgets/fastworks.dart';
 import '../../../notifications/presentation/pages/notifications.dart';
@@ -152,6 +153,43 @@ class _HomepageState extends State<Homepage> {
                   typeofmeeting: "Virtual visit",
                   typeplace: "Sanatoriya",
                   time: "08:00-20:00",
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: Text("Mashhur shifokorlar", style: TextStyle()),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text("Barchasini korsatish", style: TextStyle()),
+                    ),
+                  ],
+                ),
+                DoctorProfileCard(
+                  doctorName: 'Dr. Aziz Karimov',
+                  specialty: 'Kardiolog',
+                  imageUrl: 'assets/doctors/cardimage.jpg',
+                  rating: '4.9',
+                  reviewCount: '1,200+',
+                  isFavorite: true,
+                   about: "Yurak-qon tomir kasalliklari boyicha 15 yillik tajribaga ega bilan mutaxassis. Zamonaviy usullar bilan davolash. Yurak transplantatsiyasi boyicha Yevropa sertifikati.",
+                  onderwijs: "Toshkent tibbiyot instituti (2008),\nSankt-Peterburg kardiologiya akademiyasi (2012)",
+                  prestaties: ["💡Yurak jarrohligi boyicha 500+ operatsiya","💡   Tibbiy fanlar nomzodi","💡   Tibbiy fanlar nomzodi"],
+                  workTime: 'Dush-Juma:9:00 - 23:00',
+                ),
+                DoctorProfileCard(
+                  doctorName: 'Dr. Aziz Karimov',
+                  specialty: 'Kardiolog',
+                  imageUrl: 'assets/doctors/cardimage.jpg',
+                  rating: '4.9',
+                  reviewCount: '1,200+',
+                  isFavorite: false,
+                  about: "Yurak-qon tomir kasalliklari boyicha 15 yillik tajribaga ega bilan mutaxassis. Zamonaviy usullar bilan davolash. Yurak transplantatsiyasi boyicha Yevropa sertifikati.",
+                  onderwijs: "Toshkent tibbiyot instituti (2008),\nSankt-Peterburg kardiologiya akademiyasi (2012)",
+                  prestaties: ["💡Yurak jarrohligi boyicha 500+ operatsiya","💡Tibbiy fanlar nomzodi","💡Tibbiy fanlar nomzodi"],
+                  workTime: 'Dush-Juma:9:00 - 23:00',
                 ),
               ],
             ),

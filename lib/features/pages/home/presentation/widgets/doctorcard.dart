@@ -5,7 +5,9 @@ class Doctorcard extends StatelessWidget {
   final String name;
   final String jobs;
   final String day;
+  // uchrashuv turi
   final String typeofmeeting;
+  // yozuv joyi 
   final String typeplace;
   final String time;
 
