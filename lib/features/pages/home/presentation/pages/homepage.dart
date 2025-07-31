@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:milliy_shifo/core/utils/app_colors.dart';
 import 'package:milliy_shifo/core/utils/images.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/pages/myhealthcard.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/widgets/ambulance.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/widgets/doctorProfileCard.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/widgets/doctorcard.dart';
 import 'package:milliy_shifo/features/pages/home/presentation/widgets/fastworks.dart';
+import 'package:milliy_shifo/features/pages/home/presentation/widgets/healthAdvice.dart';
 import '../../../notifications/presentation/pages/notifications.dart';
 
 class Homepage extends StatefulWidget {
@@ -174,9 +176,15 @@ class _HomepageState extends State<Homepage> {
                   rating: '4.9',
                   reviewCount: '1,200+',
                   isFavorite: true,
-                   about: "Yurak-qon tomir kasalliklari boyicha 15 yillik tajribaga ega bilan mutaxassis. Zamonaviy usullar bilan davolash. Yurak transplantatsiyasi boyicha Yevropa sertifikati.",
-                  onderwijs: "Toshkent tibbiyot instituti (2008),\nSankt-Peterburg kardiologiya akademiyasi (2012)",
-                  prestaties: ["💡Yurak jarrohligi boyicha 500+ operatsiya","💡   Tibbiy fanlar nomzodi","💡   Tibbiy fanlar nomzodi"],
+                  about:
+                      "Yurak-qon tomir kasalliklari boyicha 15 yillik tajribaga ega bilan mutaxassis. Zamonaviy usullar bilan davolash. Yurak transplantatsiyasi boyicha Yevropa sertifikati.",
+                  onderwijs:
+                      "Toshkent tibbiyot instituti (2008),\nSankt-Peterburg kardiologiya akademiyasi (2012)",
+                  prestaties: [
+                    "💡Yurak jarrohligi boyicha 500+ operatsiya",
+                    "💡   Tibbiy fanlar nomzodi",
+                    "💡   Tibbiy fanlar nomzodi",
+                  ],
                   workTime: 'Dush-Juma:9:00 - 23:00',
                 ),
                 DoctorProfileCard(
@@ -186,11 +194,28 @@ class _HomepageState extends State<Homepage> {
                   rating: '4.9',
                   reviewCount: '1,200+',
                   isFavorite: false,
-                  about: "Yurak-qon tomir kasalliklari boyicha 15 yillik tajribaga ega bilan mutaxassis. Zamonaviy usullar bilan davolash. Yurak transplantatsiyasi boyicha Yevropa sertifikati.",
-                  onderwijs: "Toshkent tibbiyot instituti (2008),\nSankt-Peterburg kardiologiya akademiyasi (2012)",
-                  prestaties: ["💡Yurak jarrohligi boyicha 500+ operatsiya","💡Tibbiy fanlar nomzodi","💡Tibbiy fanlar nomzodi"],
+                  about:
+                      "Yurak-qon tomir kasalliklari boyicha 15 yillik tajribaga ega bilan mutaxassis. Zamonaviy usullar bilan davolash. Yurak transplantatsiyasi boyicha Yevropa sertifikati.",
+                  onderwijs:
+                      "Toshkent tibbiyot instituti (2008),\nSankt-Peterburg kardiologiya akademiyasi (2012)",
+                  prestaties: [
+                    "💡Yurak jarrohligi boyicha 500+ operatsiya",
+                    "💡Tibbiy fanlar nomzodi",
+                    "💡Tibbiy fanlar nomzodi",
+                  ],
                   workTime: 'Dush-Juma:9:00 - 23:00',
                 ),
+                Text(
+                  "Sog'liq maslahatlari",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                ),
+                Healthadvice(
+                  advice:
+                      "Lorem Ipsum，也称乱数假文或者哑元文本， 是印刷及排版领域所常用的虚拟文字。由于曾经一台匿名的打印机刻意打乱了一盒印刷字体从而造出一本字体样品书，Lorem Ipsum从西元15世纪起就被作为此领域的标准文本使用。它不仅延续了五个世纪，还通过了电子排版的挑",
+                  drinkeWater: 3,
+                  sleeping: 8,
+                ),
+                Ambulance(),
               ],
             ),
           ),
